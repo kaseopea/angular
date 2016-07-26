@@ -92,7 +92,7 @@ app.directive('dateValidator', ['CONST_VALIDATORS', function(CONST_VALIDATORS) {
             ctrl.$validators.dateInFuture = function (modelValue) {
                 var now = moment();
                 var sendDate = moment(modelValue, attrs['dateFormat']);
-                if(modelValue.length > CONST_VALIDATORS.SYMBOLS_START_CHECK_DATE) {
+                if(sendDate > CONST_VALIDATORS.SYMBOLS_START_CHECK_DATE) {
                     return moment(sendDate).isAfter(now);
                 }
 

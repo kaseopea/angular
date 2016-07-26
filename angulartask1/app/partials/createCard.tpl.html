@@ -14,7 +14,7 @@
                         <div class="alert alert-danger" ng-show="createCard.name.$error.$required || createCard.name.$error.nameValidator || createCard.name.$error.nameWords || createCard.name.$error.nameLength">
                             <div ng-show="createCard.name.$error.$required">This field is required.</div>
                             <div ng-show="createCard.name.$error.nameValidator">Oh, it's a name.It should start with capital letter.</div>
-                            <div ng-show="createCard.name.$error.nameWords">Your name should consists of {{nameMaxWords}} words maximum.</div>
+                            <div ng-show="createCard.name.$error.nameWords">Your name should consists of {{vm.nameMaxWords}} words maximum.</div>
                             <div ng-show="createCard.name.$error.nameLength">Your name is too short</div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
 
                     <div ng-show="createCard.$submitted || createCard.age.$touched">
                         <div class="alert alert-danger" ng-show="createCard.age.$error.ageValidator || createCard.age.$error.ageInteger">
-                            <div ng-show="createCard.age.$error.ageValidator">Birthday person should be in {{minAge}}...{{maxAge}} age range) </div>
+                            <div ng-show="createCard.age.$error.ageValidator">Birthday person should be in {{vm.minAge}}...{{vm.maxAge}} age range) </div>
                             <div ng-show="createCard.age.$error.ageInteger">Age should be integer) </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                     <label for="greetDate">Send on date:</label>
                     <input type="text" class="form-control" id="greetDate" required name="greetDate" ng-model="greetdate" date-format="DD-MM-YYYY" placeholder="What date do you want to greet?" date-validator>
 
-                    <div ng-show="createCard.$submitted || createCard.greetDate.$dirty">
+                    <div ng-show="createCard.$submitted || createCard.greetDate.$touched">
                         <div class="alert alert-danger" ng-show="createCard.greetDate.$error.dateValidator || createCard.greetDate.$error.dateInFuture">
                             <div ng-show="createCard.greetDate.$error.dateValidator">Check you date, please( Format is DD-MM-YYYY</div>
                             <div ng-show="createCard.greetDate.$error.dateInFuture">Sorry, you can't greet in the past( </div>
